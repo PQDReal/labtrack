@@ -1,0 +1,21 @@
+name: Publish Windows release
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Test, smoke-test and package
+        shell: pwsh
+        run: ./scripts/publish.ps1
+      - name: Publish v1.0.0
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create v1.0.0 artifacts/LabTrack-win-x64.zip --target ${{ github.sha }} --title 'LabTrack v1.0.0' --notes-file docs/RELEASE_NOTES.md
