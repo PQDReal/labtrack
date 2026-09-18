@@ -10,6 +10,7 @@ Verified 18 September 2026 on Windows. This is an educational application; these
 - Published executable smoke test passed in CI: blank-form validation, add, edit status, search, status filter, CSV export, rendering and deletion against an isolated temporary database. The smoke test calls the same deletion method as the UI; the confirmation dialog itself requires the manual step below.
 - Dependency scan after updating SQLitePCLRaw to 2.1.13: no known vulnerable packages reported by the configured NuGet sources.
 - [Verified build and distributable](https://github.com/PQDReal/labtrack/actions/runs/35305421367), implementation commit `1007e40`.
+- Downloaded that CI ZIP, extracted it locally, and ran the packaged executable's UI smoke test successfully. ZIP SHA-256: `9B5DF59DA6D69ABB8F5478F438254BAAE88CB5BB3CAE22E88B59B576956B29E5`.
 
 ## Reproduce
 
